@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	
+	<style>
+		body { padding: 0 0}
+	</style>
+
+    <window id="mPromotion" apply="barbq.MemberPromotionComposer" width="1366px" height="700px" style="background-color:#EEE9E9" visible="false">
+
+        <div style="background-color:#D3D3D3" width="1366px" height="100px">
+			<separator/><space/><space/><label value="SabayBarbecue" style="color:black; font-size:40px"/>
+			<separator/><space/><space/><label value="Computer Engineering, Suranaree University Of Technology"/>
+			<separator/>
+			<toolbar>
+				<space/><toolbarbutton id="logout" label="LogOut" style="font-size:18px"/>
+				<space/><toolbarbutton href="memberProfile.zul" label="My Profile" style="font-size:18px"/>
+				<space/><toolbarbutton label="My Promotion" style="font-size:18px"/>
+				<space/><toolbarbutton href="Promotion.zul" label="Promotion" style="font-size:18px"/>
+			</toolbar>
+		</div>
+		<separator/><separator/><separator/><separator/>
+		
+		<div width="1366px" height="600px" align="center">
+			<hbox>
+				<button id="viewPromotion1" label="ดู Promotion ที่ยังไม่ได้รับ"/>
+				<button id="viewPromotion2" label="ดู Promotion ที่ได้รับแล้ว"/>
+				<button id="viewPromotion3" label="ดู Promotion ทั้งหมดที่สั่ง"/>
+			</hbox>
+			<separator/>
+			<tabbox width="500px" mold="accordion">
+				<tabs>
+					<tab label="My Promotion"/>
+				</tabs>
+				<tabpanels><tabpanel>
+					<listbox id="setMyPromotion" mold="paging" pageSize="9">
+						<listhead>
+							<listheader label="โปรโมชั่นที่เลือกไว้" align="center"/>
+							<listheader label="Point" align="center"/>
+							<listheader label="เวลาที่สั่งของ" align="center"/>
+							<listheader label="สถานะ" align="center"/>
+						</listhead>
+					</listbox>
+				</tabpanel></tabpanels>
+			</tabbox>
+		</div>
+		
+    </window>
+
+</zk>

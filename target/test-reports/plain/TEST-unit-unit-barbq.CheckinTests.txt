@@ -1,0 +1,21 @@
+Testsuite: barbq.CheckinTests
+Tests run: 3, Failures: 0, Errors: 1, Time elapsed: 1.997 sec
+------------- Standard Output ---------------
+--Output from testUserName--
+--Output from testBlankDate--
+--Output from testBlankUserName--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testUserName--
+--Output from testBlankDate--
+--Output from testBlankUserName--
+------------- ---------------- ---------------
+
+Testcase: testUserName took 1.872 sec
+Testcase: testBlankDate took 0.078 sec
+	Caused an ERROR
+No such property: validate for class: barbq.Checkin
+groovy.lang.MissingPropertyException: No such property: validate for class: barbq.Checkin
+	at barbq.CheckinTests.testBlankDate(CheckinTests.groovy:22)
+
+Testcase: testBlankUserName took 0.016 sec

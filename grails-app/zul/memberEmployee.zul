@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window id="mEmployee" apply="barbq.MemberEmployeeComposer" visible="false">
+
+        <borderlayout height="700px">
+            <north size="100px">
+                <span>
+                    <hbox>
+                        <vbox>
+                            <a href="loginWarehouse.zul" label="ระบบจัดการสมาชิก" style="color:black;font-size:40px" tooltip="any"/>
+                            <label value="Computer Engineering, Suranaree University Of Technology"/>
+							<button id="logout" label="logout"/>
+                        </vbox>
+                    </hbox>
+                </span>
+            </north>
+
+            <center title="ยินดีต้อนรับเข้าสู่ระบบจัดการสมาชิก">
+				<tabbox mold="accordion-lite">
+					<tabs>
+						<tab label="ระบบจัดการข้อมูลโปรโมชั่นของสมาชิก"/>
+						<tab label="ระบบจัดการข้อมูลสมาชิก"/>
+					</tabs>
+					<tabpanels>
+						<tabpanel>
+							<tabbox mold="accordion">
+								<tabs>
+									<tab label="ข้อมูลโปรโมชั่น"/>
+								</tabs>
+								<tabpanels>
+									<tabpanel>
+										<hbox>
+											<vbox>
+												<label value="โปรโมชั่นที่ยังไม่ส่ง" style="background-color:#33FF66; font-size:15px"/>
+												<listbox id="setMyPromotion" rows="7">
+													<listhead>
+														<listheader width="50px" align="center"><checkbox id="cAll"/></listheader>
+														<listheader label="No." width="50px" align="center"/>
+														<listheader label="username" align="center"/>
+														<listheader label="โปรโมชั่น" align="center"/>
+														<listheader label="Point" align="center"/>
+														<listheader label="เวลาที่สั่งของ" align="center"/>
+														<listheader label="สถานะ" align="center"/>
+													</listhead>
+												</listbox>
+												<button id="confirm" label="ส่งแล้ว"/>
+											</vbox>
+											<vbox>
+												<label value="โปรโมชั่นที่ส่งแล้ว" style="background-color:#33FF66; font-size:15px"/>
+												<listbox id="setMyPromotion2" mold="paging" pageSize="7">
+													<listhead>
+														<listheader label="No." align="center"/>
+														<listheader label="username" align="center"/>
+														<listheader label="โปรโมชั่น" align="center"/>
+														<listheader label="Point" align="center"/>
+														<listheader label="เวลาที่สั่งของ" align="center"/>
+														<listheader label="สถานะ" align="center"/>
+													</listhead>
+												</listbox>
+											</vbox>
+										</hbox>
+									</tabpanel>
+								</tabpanels>
+							</tabbox>
+						</tabpanel>
+						<tabpanel>
+							<vbox>
+								<listbox id="setMyMember" mold="paging" pageSize="9">
+									<listhead>
+										<listheader label="username" align="center"/>
+										<listheader label="ชื่อ" align="center"/>
+										<listheader label="นามสกุล" align="center"/>
+										<listheader width="150px" label="รหัสบัตรประชาชน" align="center"/>
+										<listheader width="200px" label="ที่อยู่" align="center"/>
+										<listheader label="อำเภอ" align="center"/>
+										<listheader label="จังหวัด" align="center"/>
+										<listheader label="รหัสไปรษณีย์" align="center"/>
+										<listheader width="200px" label="Email" align="center"/>
+										<listheader label="เบอร์โทรศัพท์" align="center"/>
+										<listheader label="Point" align="center"/>
+									</listhead>
+								</listbox>
+								<groupbox>
+									<caption label="เพิ่ม Point ให้สมาชิก"/>
+									<span>
+										เลือกสมาชิก:
+										<combobox id="setUser"/>
+										<space/>
+										กรอกจำนวน Point:
+										<textbox id="txtPoint"/>
+										<space/>
+										กรอกเหตุผล:
+										<textbox id="txtReason"/>
+										<space/>
+										<button id="addPoint" label="ยืนยัน"/>
+									</span>
+								</groupbox>
+							</vbox>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+            </center>
+
+            <south size="30px">
+                <div align="right">
+                    <a href="index.zul" label="ติดต่อ" style="font-size:12px" />
+                    <label value=" | "/>
+                    <a href="index.zul" label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                </div>
+            </south>
+        </borderlayout>
+
+    </window>
+
+</zk>

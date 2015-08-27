@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<style>
+		body { padding: 0 0}
+		</style>
+    <window id="winpro" apply="barbq.PromotionComposer" visible="false">
+
+        <radiogroup id="a">
+	
+       <div style="background-color:#D3D3D3" width="1366px" height="100px">
+			<separator/><space/><space/><label value="SabayBarbecue" style="color:black; font-size:40px"/>
+			<separator/><space/><space/><label value="Computer Engineering, Suranaree University Of Technology"/>
+			<separator/>
+			<toolbar>
+				<space/><toolbarbutton id="logout" label="LogOut" style="font-size:18px"/>
+				<space/><toolbarbutton href="memberProfile.zul" label="My Profile" style="font-size:18px"/>
+				<space/><toolbarbutton href="memberPromotion.zul" label="My Promotion" style="font-size:18px"/>
+				<space/><toolbarbutton href="promotion.zul" label="Promotion" style="font-size:18px"/>
+			</toolbar>
+		</div>
+		<separator/><separator/><separator/><separator/>
+		
+		
+	<vbox width="100%" height="100%">
+							<separator/>
+				
+					<label></label>
+					<hbox>
+					<space/><image src="${z.resource(dir:'images', file:'p44.png')}"/> 
+				
+					<vbox>
+					
+					<hbox>
+
+					<radio label="ชุดครอบครัว" radiogroup="a"/> 
+				
+					</hbox>
+					<hbox><space/>300 แต้ม</hbox>
+					<button id="btnp1" label="ดูรายละเอียด" width="100px"/>
+					
+					</vbox>
+					
+					<space/><space/><image src="${z.resource(dir:'images', file:'p7.jpg')}"/> 
+					
+					<vbox>
+					<hbox>
+					
+					<radio label="ชุดผักรวม"  radiogroup="a"/> 
+					
+					</hbox>
+					
+					<hbox><space/>200 แต้ม</hbox>
+					<button id="btnp2" label="ดูรายละเอียด" width="100px"/>
+					
+					</vbox>
+					
+					<vbox>
+					
+					<hbox>
+					<label value='Username :'/>
+					<space/>
+					<label id="p1"/>
+				
+					</hbox>
+					<hbox>
+						<label value= 'POINT :'/>
+						<space/>
+						<label value= ''/>
+						<space/>
+						<label id= "p2"/>
+					</hbox>
+					
+					
+					</vbox>
+					
+					
+					
+					</hbox>
+					
+					<hbox>
+					<space/><image src="${z.resource(dir:'images', file:'p1.jpg')}"/> 
+					
+					<vbox>
+					<hbox>
+					<radio label="ชุดจุใจ" radiogroup="a"/> 
+					</hbox>
+					<hbox><space/>600 แต้ม</hbox>
+					<button id="btnp3" label="ดูรายละเอียด" width="100px"/>
+					</vbox>
+					<space/><space/>
+					<image src="${z.resource(dir:'images', file:'p2.jpg')}"/> 
+					<vbox>
+					<hbox>
+					<radio label="ชุดอิ่มสุด" radiogroup="a"/>
+					</hbox>
+					<hbox><space/>600 แต้ม</hbox>
+					<button id="btnp4" label="ดูรายละเอียด" width="100px"/>
+					</vbox>
+					
+					</hbox>
+					
+					<hbox>
+					
+					
+					<space/><image src="${z.resource(dir:'images', file:'p6.jpg')}"/> 
+					<vbox>
+					<hbox>
+					<radio label="ชุดทะเล" radiogroup="a"/>
+					</hbox>
+					<hbox><space/>400 แต้ม</hbox>
+					<button id="btnp5" label="ดูรายละเอียด" width="100px"/>
+					</vbox>
+					<space/><space/>
+					
+					<image src="${z.resource(dir:'images', file:'p3.jpg')}"/> 
+					<vbox>
+					
+						<hbox>
+							<radio label="ชุดสุดคุ้ม" radiogroup="a"/>
+							</hbox>
+							<hbox><space/>300 แต้ม</hbox>
+							<button id="btnp6" label="ดูรายละเอียด" width="100px"/>
+							</vbox>
+							</hbox>
+							<hbox>
+							<space/><button id="btncon" label="ยืนยัน" width="100px"/>
+					
+						</hbox>
+				
+					</vbox> 
+		
+      
+		</radiogroup>			
+
+    </window>
+
+</zk>

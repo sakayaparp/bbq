@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="barbq.IndexEmployeeComposer">
+
+        <style>
+        .style{
+            text-decoration: line-through;
+        }
+    </style>
+    
+        <borderlayout height="730px">
+            <north size="100px">
+                <span>
+                    <hbox>
+                        <vbox>
+                            <a href="indexEmployee.zul" label="ระบบพนักงาน" style="color:black;font-size:40px" tooltip="any"/>
+                            <label value="Computer Engineering, Suranaree University Of Technology"/>
+                           
+                                <hbox>
+                                  
+                                    <button id ="btnOut">LogOut</button>
+                                    <button id ="lb">ดูรายงานสถานะ</button>
+                                </hbox>
+
+                        </vbox>
+                    </hbox>
+                </span>
+            </north>
+            <center title="ระบบจัดการพนักงาน" >
+  
+      <hbox>
+      
+      <vbox>
+                     <separator width="20px"/>
+             <hbox>
+                   <separator width="150px"/>
+             <groupbox><label>กรอกรายละเอียดพนักงาน</label> </groupbox>
+            </hbox>
+
+                   <separator width="20px"/>
+          <hbox>
+                  <separator width = "20px"/>
+                  <label>ชื่อพนักงาน</label>
+                  <separator width = "47px"/>
+                  <textbox id = "name" width = "200px"/>
+          </hbox>
+                    <separator width="20px"/>
+          <hbox>
+                  <separator width = "20px"/>
+                  <label>นามสกุลพนักงาน</label>
+                  <separator width = "20px"/>
+                  <textbox id = "surname" width = "200px"/>
+          </hbox>
+           <separator width="20px"/>
+              <hbox>
+                      <separator width="20px"/>
+                    <label>เพศ </label>
+                    <separator width = "80px"/>
+                          <radiogroup id ="sex">
+                            <radio id = "sex1" label="ชาย" />
+                            <radio id = "sex2" label="หญิง" />
+                          </radiogroup>
+                    </hbox>  
+                     <separator width="20px"/>
+
+          <hbox>
+                  <separator width = "20px"/>
+                  <label>ที่อยู่พนักงาน</label>
+                  <separator width = "47px"/>
+                  <textbox id = "address" width = "180px"/>
+          </hbox>
+           <separator width="20px"/>
+            <hbox>
+                  <separator width = "20px"/>
+                  <label>อำเภอ</label>
+                  <separator width = "80px"/>
+                  <textbox id = "aum" width = "180px"/>
+          </hbox>
+           <separator width="20px"/>
+           <hbox>
+                  <separator width = "20px"/>
+                  <label>จังหวัด</label>
+                  <separator width = "75px"/>
+                  <textbox id = "provinc" width = "180px"/>
+          </hbox>
+          <separator width="20px"/>
+          <hbox>
+                  <separator width = "20px"/>
+                  <label>รหัสไปรษณี</label>
+                  <separator width = "50px"/>
+                  <textbox id = "zipcode" width = "180px"/>
+          </hbox>
+          <separator width="20px"/>
+          <hbox>
+            <separator width = "20px"/>
+                  <label>ตำแหน่งของพนักงาน</label>
+                  <separator width = "20px"/>
+                  <combobox id = "depart">
+                          <comboitem label = "พนักงานคลังสินค้า"/>
+                          <comboitem label = "พนักงานสั่งอาหาร"/>
+                          <comboitem label = "พนักงานชำระเงิน"/>
+                          <comboitem label = "พนักงานดูแลระบบสมาชิก"/>
+                          <comboitem label = "พนักงานจองโต๊ะ"/>
+                </combobox>
+          </hbox>
+           <separator width="20px"/>
+          <hbox> 
+                  <separator width = "21px"/>
+                  <label>กำหนดเงินเดือนของพนักงาน</label>
+                  <separator width = "21px"/>
+                  <textbox id = "salary" width = "150px"/>
+                    <separator width = "10px"/>
+                  <label>บาท</label>
+          </hbox>
+               <separator width="20px"/>
+           <hbox>
+                   <separator width="150px"/>
+                   <groupbox><label>สร้าง Account ให้พนักงาน</label> </groupbox>
+            </hbox>
+               <separator width="20px"/>
+            <hbox>
+                  <separator width = "20px"/>
+                  <label>กำหนดชื่อผู้ใช้</label>
+                  <separator width = "35px"/>
+                  <textbox id = "username" width = "200px"/>
+          </hbox>
+             <separator width="20px"/>
+            <hbox>
+                  <separator width = "20px"/>
+                  <label>กำหนดรหัสผ่าน</label>
+                  <separator width = "30px"/>
+                  <textbox id = "pass" width = "200px"/>
+          </hbox>
+             <separator width="15px"/>
+
+             <hbox>
+                <separator width="20px"/>
+            <button id="btnSubmit">บันทึกข้อมูล</button>
+                 <separator width="10px"/>
+            <button id="btnClear">ล้างข้อมูล</button>
+           </hbox>
+         
+              <separator width="20px"/>
+      </vbox>
+      <separator width="10px"/>
+      <vbox>    
+                 <separator width="20px"/>
+                <groupbox><label>หน้าแสดงรายละเอียดของพนักงาน</label></groupbox>
+                
+                <listbox id="listshow" width = "650px" height="430px" >
+                          <listhead sizable="true">
+                                  <listheader label="name" sort="auto" width="300px"/>
+                                  <listheader label="gender" sort="auto" />
+                                  <listheader label="department" sort="auto" />
+                                  <listheader label="salary" sort="auto" />
+                          </listhead>
+                          <listfoot>
+                          </listfoot>
+                </listbox>      
+                                  <hbox>
+                                  <label value="เลือกชื่อที่ต้องการลบ" />
+                                  <combobox id = "delname" width="150px">
+                                  </combobox>
+                                  <button id = "del">ลบพนักงาน</button>
+                                </hbox>
+      </vbox>
+      <vbox>
+        <separator width="20px"/>
+            <hbox>
+                   <separator width="100px"/>
+                   <groupbox><label>แก้ไขข้อมูลพนักงาน</label> </groupbox>
+            </hbox>
+                <separator width="5px"/>
+              <hbox>
+                   <label>เลือกพนักงานที่ต้องการแก้ไข</label>
+                   <separator width="5px"/>
+                   <combobox id ="listEdit">
+                   </combobox>
+                   <separator width="5px"/>
+                   <button id ="submitEdit">เลือก</button>
+              </hbox>
+             <separator width="5px"/>
+            <vbox>
+                      <tabbox width="400px" mold="accordion">
+                        <tabs>
+                            <tab label="ข้อมูลปัจจุบันของพนักงาน" />
+                            <tab label="แก้ไขข้อมูลพนักงาน" />
+                        </tabs>
+                        <tabpanels>
+                            <tabpanel>
+                                      <vbox>
+                                            <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>พนักงานชื่อ :</label>
+                                                  <separator width="10px"/>
+                                                  <label id="sname"></label>
+                                           </hbox>
+                                            <separator width="5px"/>
+                                            <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>เพศ :</label>
+                                                  <separator width="10px"/>
+                                                  <label id="ssex"></label>
+                                           </hbox>
+                                           <separator width="5px"/>
+                                           <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>ที่อยู่ :</label>
+                                                  <separator width="10px"/>
+                                                  <label id="saddress"></label>
+                                           </hbox>
+                                           <separator width="5px"/>
+                                           <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>ตำแหน่งพนักงาน :</label>
+                                                  <separator width="10px"/>
+                                                  <label id="sdepart"></label>
+                                           </hbox>
+                                           <separator width="5px"/>
+                                           <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>เงินเดือน :</label>
+                                                  <separator width="10px"/>
+                                                  <label id="ssalary"></label>
+                                           </hbox>
+                                           <separator width="5px"/>
+                                           <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>ชื่อผู้ใช้ :</label>
+                                                  <separator width="10px"/>
+                                                  <label id="susername"></label>
+                                           </hbox>
+                                           <separator width="5px"/>
+                                           <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>รหัสผ่าน :</label>
+                                                  <separator width="10px"/>
+                                                  <label id="spass"></label>
+                                           </hbox>
+                                           <separator width="5px"/>
+                                      </vbox>
+                            </tabpanel>
+                            <tabpanel>
+                                      <vbox>
+                                            <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>ปรับตำแหน่ง :</label>
+                                                  <separator width="10px"/>
+                                                 <combobox id = "depart2" width ="150px">
+                                                    
+                                                    <comboitem label = "พนักงานคลังสินค้า"/>
+                                                    <comboitem label = "พนักงานสั่งอาหาร"/>
+                                                    <comboitem label = "พนักงานชำระเงิน"/>
+                                                    <comboitem label = "พนักงานดูแลระบบสมาชิก"/>
+                                                    <comboitem label = "พนักงานจองโต๊ะ"/>
+                                                 </combobox>
+                                           </hbox>
+                                            <separator width="5px"/>
+                                            <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>ปรับเงินเดือน : จาก</label>
+                                                  <separator width="10px"/>
+                                                  <label id="lb1"></label>
+                                                  <separator width="10px"/>
+                                                  <textbox id="textbox2"></textbox>
+                                            </hbox>
+                                            <separator width="5px"/>
+                                            <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>ปรับชื่อผู้ใช้ : จาก</label>
+                                                  <separator width="10px"/>
+                                                  <label id="lb2"></label>
+                                                  <separator width="10px"/>
+                                                  <textbox id="textbox3"></textbox>
+                                            </hbox>
+                                            <separator width="5px"/>
+                                            <hbox>
+                                                  <separator width="10px"/>
+                                                  <label>ปรับรหัสผ่าน : จาก</label>
+                                                   <separator width="10px"/>
+                                                  <label id="lb3"></label>
+                                                  <separator width="10px"/>
+                                                  <textbox id="textbox4"></textbox>
+                                            </hbox>
+                                            <separator width="5px"/>
+                                            <hbox>
+                                               <separator width="10px"/>
+                                                 <button id ="update">บันทึกการเปลี่ยนแปลง</button>
+                                            </hbox>
+                                           <separator width="5px"/>
+
+                                        </vbox>   
+                           </tabpanel>
+                        </tabpanels>
+                    </tabbox>
+            </vbox>
+      </vbox>
+          
+      </hbox>
+                
+            </center>
+
+
+            <south size="30px">
+                <div align="right">
+                    <a href="index.zul" label="ติดต่อ" style="font-size:12px" />
+                    <label value=" | "/>
+                    <a href="index.zul" label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                </div>
+
+            </south>
+
+    
+        </borderlayout>
+        </window>
+
+</zk>

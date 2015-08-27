@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="barbq.SavemoneyComposer">
+
+       <style>
+        .style{
+            text-decoration: line-through;
+        }
+    </style>
+    
+        <borderlayout height="650px">
+            <north size="100px">
+                <span>
+                    <hbox>
+                        <vbox>
+                            <a href="index.zul" label="รายจ่ายประจำวัน" style="color:black;font-size:40px" tooltip="any"/>
+                            <label value="Computer Engineering, Suranaree University Of Technology"/>               
+                                     <hbox>
+                                        <separator/>
+                                        <button id="btnLogout" mold="trendy" href="/loginWarehouse.zul">ออกจากระบบ</button><separator/>
+                                     </hbox>       
+                        </vbox>
+                    </hbox>
+                </span>
+            </north>
+
+            <center title="รายจ่ายวันนี้" >
+                <hbox>
+
+                    <vbox>
+                        <calendar id="cal"/>
+                            <groupbox width="100%">
+                                <caption label="ค้นหา"/>
+                                <datebox  id="in_search" format="yyyy/MM/dd"/>
+                                <button id="search" label="ค้น"  mold="trendy"/>
+                            </groupbox>
+                                 <panel height="100%" width="100%" framable="true" title="เพิ่ม"
+                                     border="rounded+" maximizable="true" style="margin-bottom:10px">
+                                     <panelchildren>
+                                        <groupbox width="100%">
+                                        <caption label="กรอกรายละเอียด"/>
+                                             <label value="ชื่อ: "/><textbox id="name"/>
+                                             <separator/>
+                                             <label value="วันที่: "/><datebox id="in" format="yyyy/MM/dd"/>
+                                             <separator/>
+                                             <label value="จำนวน: "/><textbox id="number"/>
+                                             <separator/>
+                                             <label value="ราคา: "/><textbox id="price"/>
+                                             <separator/>
+                                         <button id="ok" label="ตกลง" width="100%" mold="trendy"/>
+                                         </groupbox>
+                                    </panelchildren>
+                                </panel>
+                   </vbox>
+                    
+                    <space bar="true" height="600px"/>    
+                        
+                    <vbox>
+                        <hbox>
+                            <button id="clear" label="ล้างข้อมูล" mold="trendy"/>
+                            <button id="pull"  label="ดึงข้อมูล" mold="trendy"/>
+                        </hbox>
+                       <groupbox height="100%">
+                        <caption label="อัพเดตรายจ่าย"/>
+                            <listbox id="box"  mold="paging" pageSize="5">
+                                <listhead sizable="true" >
+                                    <listheader label="ชื่อ" sort="auto"/>
+                                    <listheader label="วันที่" sort="auto" />
+                                    <listheader label="จำนวน" sort="auto" />
+                                    <listheader label="ราคา" sort="auto" />
+                                    <listheader label="ลบ" sort="auto" />
+                                </listhead>
+                            </listbox>
+                        </groupbox>
+                     </vbox>
+
+                </hbox>
+                 
+            </center>
+
+                <south size="30px">
+                <div align="right">
+                    <a href="index.zul" label="ติดต่อ" style="font-size:12px" />
+                    <label value=" | "/>
+                    <a href="index.zul" label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                </div>
+            </south>
+    
+        </borderlayout>
+    </window>
+
+
+</zk>

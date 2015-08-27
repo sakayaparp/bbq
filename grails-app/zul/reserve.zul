@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="barbq.ReserveComposer">
+
+        <style>
+        .style{
+            text-decoration: line-through;
+        }
+    </style>
+    
+        <borderlayout height="650px">
+            <north size="100px">
+                <span>
+                    <hbox>
+                        <vbox>
+                            <a href="reserve.zul" label=" RESERVE " style="color:black;font-size:40px" tooltip="any"/>
+                            <label value="Computer Engineering, Suranaree University Of Technology"/>
+                           
+                                <hbox>
+                                
+                                </hbox>
+
+                        </vbox>
+                    </hbox>
+                </span>
+            </north>
+            <center title="ระบบจัดการพนักงาน">
+  
+      <hbox>
+        <window apply="barbq.ReserveComposer" title="Status Profile" border="normal" height="420px" width="180px">
+            <vbox>
+                <button id="btnlogout" label="ออกจากระบบ" width="90px" height="30px"/>
+            </vbox>
+        </window>
+        <window title="หน้าต่างระบบจองโต๊ะ" border="normal" height="420px" width="640px">
+            
+                <tabbox width="410px">
+                    <tabs>
+                        <tab label="แผนผังการแสดงโต๊ะ" />
+                        
+                        <tab label="การเข้าจอง" />
+                       
+                    </tabs>
+                    
+                    <tabpanels>
+                        <tabpanel>
+                            <window border="normal" height="240px" width="400px">
+                                <vbox>
+                                <hbox spacing="1">
+                                    <window border="normal" height="40px" width="40px">A1</window><space/>
+                                    <window border="normal" height="40px" width="40px">A2</window><space/>
+                                    <window border="normal" height="40px" width="40px">A3</window><space/>
+                                    <window border="normal" height="40px" width="40px">A4</window><space/>
+                                    <window border="normal" height="40px" width="40px">A5</window><space/>
+                                    <window border="normal" height="40px" width="40px">A6</window><space/>
+                                    <window border="normal" height="40px" width="40px">A7</window><space/>
+                                </hbox>
+
+                                <separator/>
+
+                                <hbox>    
+                                    <window border="normal" height="40px" width="40px">B1</window><space/>
+                                    <window border="normal" height="40px" width="40px">B2</window><space/>
+                                    <window border="normal" height="40px" width="40px">B3</window><space/>
+                                    <window border="normal" height="40px" width="40px">B4</window><space/>
+                                    <window border="normal" height="40px" width="40px">B5</window><space/>
+                                    <window border="normal" height="40px" width="40px">B6</window><space/>
+                                    <window border="normal" height="40px" width="40px">B7</window><space/>
+                                    
+                                </hbox>
+
+                                <separator/>
+
+                                <hbox>    
+                                    <window border="normal" height="40px" width="40px">C1</window><space/>
+                                    <window border="normal" height="40px" width="40px">C2</window><space/>
+                                    <window border="normal" height="40px" width="40px">C3</window><space/>
+                                    <window border="normal" height="40px" width="40px">C4</window><space/>
+                                    <window border="normal" height="40px" width="40px">C5</window><space/>
+                                    <window border="normal" height="40px" width="40px">C6</window><space/>
+                                    <window border="normal" height="40px" width="40px">C7</window><space/>
+                                    
+                                </hbox>
+
+                                <separator/>
+
+                                <hbox>    
+                                    <window border="normal" height="40px" width="40px">D1</window><space/>
+                                    <window border="normal" height="40px" width="40px">D2</window><space/>
+                                    <window border="normal" height="40px" width="40px">D3</window><space/>
+                                    <window border="normal" height="40px" width="40px">D4</window><space/>
+                                    <window border="normal" height="40px" width="40px">D5</window><space/>
+                                    <window border="normal" height="40px" width="40px">D6</window><space/>
+                                    <window border="normal" height="40px" width="40px">D7</window><space/>
+                                    
+                                </hbox>
+
+                                </vbox>
+                            </window>
+                        </tabpanel>
+                        
+                        <tabpanel >
+                            <window apply="barbq.ReserveComposer"  border="normal" height="240px" width="400px">
+                                <vbox>
+                                    <combobox id="listtable" width="80px">
+                                        <comboitem label="A1"/>
+                                        <comboitem label="A2"/>
+                                        <comboitem label="A3"/>
+                                        <comboitem label="A4"/>
+                                        <comboitem label="A5"/>
+                                        <comboitem label="A6"/>
+                                        <comboitem label="A7"/>
+
+                                        <comboitem label="B1"/>
+                                        <comboitem label="B2"/>
+                                        <comboitem label="B3"/>
+                                        <comboitem label="B4"/>
+                                        <comboitem label="B5"/>
+                                        <comboitem label="B6"/>
+                                        <comboitem label="B7"/>
+
+                                        <comboitem label="C1"/>
+                                        <comboitem label="C2"/>
+                                        <comboitem label="C3"/>
+                                        <comboitem label="C4"/>
+                                        <comboitem label="C5"/>
+                                        <comboitem label="C6"/>
+                                        <comboitem label="C7"/>
+
+                                        <comboitem label="D1"/>
+                                        <comboitem label="D2"/>
+                                        <comboitem label="D3"/>
+                                        <comboitem label="D4"/>
+                                        <comboitem label="D5"/>
+                                        <comboitem label="D6"/>
+                                        <comboitem label="D7"/>
+
+                                    </combobox>
+
+                                    <button id="btnaccept" label="ยืนยันการจองโต๊ะ" width="120px" height="25px"/>
+                                </vbox>
+
+                            </window>
+                        </tabpanel>
+                       
+                    </tabpanels>
+                </tabbox>
+        
+            
+        </window>
+       </hbox>
+                
+    </center>
+
+
+   
+
+
+
+            <south size="30px">
+                <div align="right">
+                    <a href="index.zul" label="ติดต่อ" style="font-size:12px" />
+                    <label value=" | "/>
+                    <a href="index.zul" label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                </div>
+
+            </south>
+    
+        </borderlayout>
+
+    </window>
+
+</zk>

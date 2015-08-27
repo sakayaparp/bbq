@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <style>
+		body { padding: 0 0}
+	</style>
+
+    <window id="mProfile" apply="barbq.MemberProfileComposer" width="1366px" height="700px" style="background-color:#EEE9E9" visible="false">
+		<window id="editProfilePage" apply="barbq.MemberProfileComposer" mode="modal" position="center,center" visible="false">
+			<groupbox width="500px">
+			<caption label="แก้ไขข้อมูลส่วนตัว"/>
+			<div height="350px" style="background-color:#BBFFFF">
+				<hbox>
+					<div width="150px" align="right">
+						<separator/><separator/><separator/>
+						<separator/><separator/><space/><space/><label style="font-size:21px">ที่อยู่:</label>
+						<separator/><separator/><space/><space/><label style="font-size:21px">อำเภอ:</label>
+						<separator/><separator/><space/><space/><label style="font-size:21px">จังหวัด:</label>
+						<separator/><separator/><space/><space/><label style="font-size:21px">รหัสไปรษณีย์:</label>
+						<separator/><separator/><space/><space/><label style="font-size:21px">Email:</label>
+						<separator/><separator/><space/><space/><label style="font-size:21px">เบอร์โทรศัพท์:</label>
+					</div>
+					<div width="350px">
+						<separator/><separator/><separator/>
+						<separator/><separator/><space/><space/><textbox id="inAddress" style="font-size:15.5px"/>
+						<separator/><separator/><space/><space/><textbox id="inAmphoe" style="font-size:15.5px"/>
+						<separator/><separator/><space/><space/><textbox id="inProvince" style="font-size:15.5px"/>
+						<separator/><separator/><space/><space/><textbox id="inZipcode" style="font-size:15.5px"/>
+						<separator/><separator/><space/><space/><textbox id="inEmail" style="font-size:15.5px"/>
+						<separator/><separator/><space/><space/><textbox id="inPhonenumber" style="font-size:15.5px"/>
+						<separator/><separator/><separator/>
+						<space/><space/><space/>
+						<button id="btnConfirm" label="ยืนยัน"/><space/><space/><button id="btnCancel" label="ยกเลิก"/>
+					</div>
+				</hbox>
+			</div>
+			</groupbox>
+		</window>
+		
+        <div style="background-color:#D3D3D3" width="1366px" height="100px">
+			<separator/><space/><space/><label value="SabayBarbecue" style="color:black; font-size:40px"/>
+			<separator/><space/><space/><label value="Computer Engineering, Suranaree University Of Technology"/>
+			<separator/>
+			<toolbar>
+				<space/><toolbarbutton id="logout" label="LogOut" style="font-size:18px"/>
+				<space/><toolbarbutton href="memberProfile.zul" label="My Profile" style="font-size:18px"/>
+				<space/><toolbarbutton href="memberPromotion.zul" label="My Promotion" style="font-size:18px"/>
+				<space/><toolbarbutton href="Promotion.zul" label="Promotion" style="font-size:18px"/>
+			</toolbar>
+		</div>
+		<separator/><separator/><separator/><separator/><separator/>
+		<hbox>
+			<div width="350px" height="550px"/>
+			<div width="700px" height="550px" style="background-color:#B0E0E6">
+				<hbox>
+					<div width="200px" height="550px" align="right">
+						<separator/><separator/><separator/>
+						<separator/><separator/><space/><space/><label style="font-size:20px">Username:</label>
+						<separator/><separator/><space/><space/><label style="font-size:20px">Point:</label>
+						<separator/><separator/><separator/>
+						<separator/><separator/><space/><space/><label style="font-size:20px">ชื่อ-นามสกุล:</label>
+						<separator/><separator/><space/><space/><label style="font-size:20px">รหัสบัตรประชาชน:</label>
+						<separator/><separator/><space/><space/><label style="font-size:20px">ที่อยู่:</label>
+						<separator/><separator/><space/><space/><label style="font-size:20px">อำเภอ:</label>
+						<separator/><separator/><space/><space/><label style="font-size:20px">จังหวัด:</label>
+						<separator/><separator/><space/><space/><label style="font-size:20px">รหัสไปรษณีย์:</label>
+						<separator/><separator/><space/><space/><label style="font-size:20px">Email:</label>
+						<separator/><separator/><space/><space/><label style="font-size:20px">เบอร์โทรศัพท์:</label>
+					</div>
+					<div width="500px" height="550px">
+						<separator/><separator/><separator/>
+						<separator/><separator/><space/><space/><label id="sUsername" style="font-size:20px"/>
+						<separator/><separator/><space/><space/><label id="sPoint" style="font-size:20px"/><space/><label value="แต้ม" style="font-size:20px"/>
+						<separator/><separator/><separator/>
+						<separator/><separator/><space/><space/><label id="sName" style="font-size:20px"/><space/><label id="sLastname" style="font-size:20px"/>
+						<separator/><separator/><space/><space/><label id="sIdnumber" style="font-size:20px"/>
+						<separator/><separator/><space/><space/><label id="sAddress" style="font-size:20px"/>
+						<separator/><separator/><space/><space/><label id="sAmphoe" style="font-size:20px"/>
+						<separator/><separator/><space/><space/><label id="sProvince" style="font-size:20px"/>
+						<separator/><separator/><space/><space/><label id="sZipcode" style="font-size:20px"/>
+						<separator/><separator/><space/><space/><label id="sEmail" style="font-size:20px"/>
+						<separator/><separator/><space/><space/><label id="sPhonenumber" style="font-size:20px"/>
+						<separator/><separator/><separator/><separator/>
+						<space/><space/><space/><space/><space/><space/><space/>
+						<space/><space/><button id="btnEditProfile" label="แก้ไขข้อมูลส่วนตัว"/>
+					</div>
+				</hbox>
+			</div>
+		</hbox>
+    </window>
+
+</zk>

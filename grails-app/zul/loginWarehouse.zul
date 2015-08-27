@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="barbq.LoginWarehouseComposer">
+
+        <style>
+		.style{
+			text-decoration: line-through;
+		}
+	</style>
+	
+        <borderlayout height="650px">
+            <north size="100px">
+                <span>
+                    <hbox>
+                        <vbox width="1250px">
+                            <a href="loginWarehouse.zul" label="Login For Employee" style="color:black;font-size:40px" tooltip="any"/>
+                            <label value="Computer Engineering, Suranaree University Of Technology"/>
+                            <popup id="any" width="300px">
+                                <vbox>
+                                    <label value="ระบบคลังสินค้า เบิก จ่าย"/>
+                                    <label value="sut computer"/>
+                                </vbox>
+                            </popup>
+								<hbox>
+									<a href="index.zul" label="หน้าหลัก" style="font-size:12px" />
+									<label value=" | "/>
+									<a href="indexEmplo.zul" label="ผู้จัดการ" style="font-size:12px" />
+								</hbox>
+                        </vbox>
+                    </hbox>
+                </span>
+            </north>
+			
+            
+
+            <center title="เข้าสู่ระบบ">
+				<div align="center">
+					<groupbox width="100%">
+						<separator/><separator/><separator/><separator/><separator/><separator/>
+						<caption label="For Employee"/>
+						<separator/>
+						<span>
+							<separator/>
+							<label value="Username:"/> <textbox id="txtAddUsername"/> <separator/>
+							<label value="Password:"/> <textbox id="txtAddPassword" type="password"/> <separator/>
+							
+							<button id="btnlogin">เข้าสู่ระบบ</button><separator/>
+						
+						</span>
+					</groupbox>
+                </div>
+            </center>
+
+            <south size="30px">
+                <div align="right">
+                    <a href="index.zul" label="ติดต่อ" style="font-size:12px"/>
+                    <label value=" | "/>
+                    <a href="index.zul" label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                </div>
+
+            </south>
+    
+        </borderlayout>
+
+    </window>
+
+</zk>

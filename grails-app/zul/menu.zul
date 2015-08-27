@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="barbq.MenuComposer">
+
+        <style>
+        .style{
+            text-decoration: line-through;
+        }
+    </style>
+    
+        <borderlayout height="650px">
+            <north size="100px">
+                <span>
+                    <hbox>
+                        <vbox>
+                            <a href="index.zul" label="Menu" style="color:black;font-size:40px" tooltip="any"/>
+                            <label value="Computer Engineering, Suranaree University Of Technology"/>
+                           
+                                
+                                     <hbox>
+                                        <separator/>
+                                        <button id="btnLogout" href="/loginWarehouse.zul">ออกจากระบบ</button><separator/>
+                                     </hbox>      
+                                
+                               
+                        </vbox>
+                    </hbox>
+                </span>
+            </north>
+
+           
+
+
+
+            <div></div>
+            <center title="เมนูอาหารวันนี้">
+                <window  apply="barbq.MenuComposer" id="home" title="ทั้งหมด" border="normal" height="100%" width="100%">
+                        <listbox id="box" height="100%">
+                            <listhead sizable="true">
+                                <listheader label="รหัส" sort="auto" />
+                                <listheader label="ชื่อชุดอาหาร" sort="auto" />
+                                <listheader label="รายละเอียด" sort="auto" />
+                                <listheader label="ราคา" sort="auto" />
+                                <listheader label="โต๊ะ" sort="auto" />
+                                <listheader label="จำนวน" sort="auto" />
+                                
+                            </listhead>
+                            <listitem>
+                                <listcell label="1" />
+                                <listcell label="ชุดอิ่มอร่อย" />
+                                <listcell label="ปลาหมึกกรอบ เนื้อหมู เนื้อวัว เนื้อไก่ กุ้งพันปูอัด เกี๊ยวกุ้งสด หมูสามอย่าง หมูสไลค์ หอยนางรม เนื้อปลาสด หมูนุ่ม ไข่ไก่สด สาหร่ายทรงเครื่อง วุ้นเส้น ลูกชิ้น เต้าหู ตับหมูสด" />
+                                <listcell label="999" />
+                                <listcell><textbox id="table1" width="50%" value="0"/></listcell>
+                                <listcell><textbox id="count1" width="50%" value="0"/></listcell>
+                                
+                            </listitem>
+                            <listitem>
+                                <listcell label="2" />
+                                <listcell label="ชุดพอเพียง" />
+                                <listcell label="เมนูสำหรับลูกค้าที่ต้องการอิ่มอย่างประหยัด ซาลาเปา ขนมจีบ ก๋วยเตี๋ยวหลอด ลูกชิ้น ปอเปี๊ยะ เผือกทอด หอยจ๊อ ฮะเก๋า ปลาม้วน" />
+                                <listcell label="599" />
+                               <listcell><textbox id="table2" width="50%" value="0"/></listcell>
+                                <listcell><textbox id="count2" width="50%" value="0"/></listcell>
+                                
+                            </listitem>
+                            <listitem>
+                                <listcell label="3" />
+                                <listcell label="ชุดเพื่อสุขภาพ" />
+                                <listcell label="ผักและเห็ดนาๆชนิด สำหรับคนที่รักสุขภาพต้องเมนนี้เท่านั้น" />
+                                <listcell label="799" />
+                                <listcell><textbox id="table3" width="50%" value="0"/></listcell>
+                                <listcell><textbox id="count3" width="50%" value="0"/></listcell>
+                                
+                            </listitem>
+                            <listitem>
+                                <listcell label="4" />
+                                <listcell label="ชุดเนื้อสุดอลังการ" />
+                                <listcell label="ปลา ปลาหมึก กุ้ง เกี๊ยว เนื้อหมู เนื้อไก่ เนื้อวัว สาหร่าย เต้าหู้" />
+                                <listcell label="599" />
+                               <listcell><textbox id="table4" width="50%" value="0"/></listcell>
+                                <listcell><textbox id="count4" width="50%" value="0"/></listcell>
+                                
+                            </listitem>
+                            <listfoot>
+                                <listfooter>
+                                    <button id="ok" label="ยืนยันการเลือก" width="100%"/>
+                                </listfooter>
+                            </listfoot>
+                        </listbox>
+
+                                    <window apply="barbq.MenuComposer" id="confirm" title="รายการอาหารที่สั่ง" width="700px" mode="modal" position="center,center" visible="false">
+
+                                                        <listbox id="box2" height="100%">
+                                                                <listhead sizable="true">
+                                                                    <listheader label="ชื่อชุดอาหาร" sort="auto" />
+                                                                    <listheader label="ราคา" sort="auto" />
+                                                                    <listheader label="โต๊ะ" sort="auto" />
+                                                                    <listheader label="จำนวน" sort="auto" />
+                                                                    <listheader label="สถานะ" sort="auto" />
+                                                                 </listhead>
+
+                                                                 <listfoot>
+                                                                    <listfooter id="foot">
+                                                                        <hbox>
+                                                                        <button id="cancel" label="ปิดหน้าต่าง"  width="100%"/>
+                                                                        </hbox>
+                                                                     </listfooter>
+                                                                 </listfoot>
+                                                        </listbox>
+                                            
+                                    </window>
+
+                </window>
+                     
+            </center>
+
+            <south size="30px">
+                <div align="right">
+                    <a href="index.zul" label="ติดต่อ" style="font-size:12px" />
+                    <label value=" | "/>
+                    <a href="index.zul" label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                </div>
+
+            </south>
+    
+        </borderlayout>
+
+    </window>
+
+</zk>

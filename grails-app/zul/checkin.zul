@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+<style>
+            body { background-color:black}
+    </style>
+
+      <window apply="barbq.CheckinComposer">
+                
+
+                        <groupbox>
+                         <hbox>
+                              <vbox>
+                                <separator width="100px"/>
+                                   <groupbox >     
+                                                    <hbox>
+                                                           <separator width="10px"/>
+                                                           <label style="color: white" value="== WelCome To Checkin System ==" />
+                                                    </hbox>
+                                                    <vbox>
+                                                            <separator width="10px"/>
+                                                             <button label="เพิ่มพนักงาน(Admin Only)" id="check1" image="/images/network.png" dir="reverse" width="220px"/>
+                                                            <separator width="10"/>
+                         
+                                                            <button label="แสดงรายชื่อพนักงานทั้งหมด" id="check3" image="/images/network.png" dir="reverse" width="220px"/>
+                                                            <separator width="10px"/>
+                                                            <button label="กลับสู่หน้าหลัก" id="check0" image="/images/network.png" dir="reverse" width="220px"/>
+                                                           <separator width="10px"/>
+                                                     </vbox>
+                                                     
+                                    </groupbox>
+                                            <groupbox>
+                                            <hbox>
+                                                  <calendar id="cal" onChange="in.value = cal.value" />
+                                            </hbox>
+                                            </groupbox>
+                                            
+
+                                
+                                        </vbox>
+                                        <vbox>
+                                            <separator width="40px"/>
+                                        <hbox>
+                                            <separator width="160px"/>
+                                             <label style="color: white" value="== ลงชื่อเข้างาน ==" />
+                                        </hbox>
+                                        <separator width="30px"/>
+                                        <hbox>
+                                            <separator width="60px"/>
+                                             <label style="color: white" value="กรอกชื่อผู้ใช้ของพนักงาน" />
+                                        </hbox>
+                                          <hbox> 
+                                            <separator width="60px"/>
+                                          <textbox id="username" width="300px"></textbox>
+                                          </hbox>
+                                            <separator width="30px"/>
+                                            <hbox>
+                                            <separator width="60px"/>
+                                             <label style="color: white" value="กรอกรหัสผ่านของพนักงาน" />
+                                        </hbox>
+                                          <hbox> 
+                                            <separator width="60px"/>
+                                          <textbox id="password" width="300px" type="password"></textbox>
+                                          </hbox>
+                                          <separator width="60px"/>
+                                          <hbox>
+                                            <separator width="60px"/>
+                                          <button label="ลงชื่อเข้างาน" id="check5" image="/images/login.png" dir="reverse" width="220px"/>
+                                          </hbox>
+                                                 <separator width="20px"/>
+                                                 <hbox>
+                                                 <separator width="60px"/>
+                                                  <label style="color: white" value="แสดงรายละเอียดพนักงานที่เข้างานคนล่าสุด" />
+                                                 </hbox>
+                                                  <separator width="20px"/>
+                                                 <hbox>
+                                                 <separator width="60px"/>
+                                                  <label style="color: white" value="พนักงานชื่อ :" />
+                                                  <label style="color: white" id="emName"  />
+                                                 </hbox>
+                                                  <separator width="20px"/>
+                                                 <hbox>
+                                                 <separator width="60px"/>
+                                                  <label style="color: white"  value="นามสกุล :" />
+                                                  <label style="color: white" id="emsurName"  />
+                                                 </hbox>
+                                                  <separator width="20px"/>
+                                                   <hbox>
+                                                 <separator width="60px"/>
+                                                  <label style="color: white"  value="เพศ :" />
+                                                   <label style="color: white" id="emSex" />
+                                                 </hbox>
+                                                  <separator width="20px"/>
+                                                 <hbox>
+                                                 <separator width="60px"/>
+                                                  <label style="color: white" value="ทำงานอยู่แผนก :" />
+                                                   <label style="color: white" id="emDepart"  />
+                                                 </hbox>
+                                                 <separator width="20px"/>
+                                                 <hbox>
+                                                 <separator width="60px"/>
+                                                  <label style="color: white"  value="เข้าทำงานเมื่อเวลา :" />
+                                                   <label style="color: white" id="emDate"  />
+                                                 </hbox>
+
+                                         </vbox>
+
+                                        <separator width="50px"/>
+                                         <hbox>
+
+                                  <tabbox width="515px" mold="accordion">
+                                          <tabs>
+                                              <tab label="รายชื่อพนักงานที่ลงชื่อเข้างาน" />
+                                              <tab label="วิธีใช้งานระบบCheckIn" />
+                                          </tabs>
+                                          <tabpanels>
+                                                    <tabpanel>
+                                                         <listbox id="listshow" width = "500px" height="440px" >
+                                                            <listhead sizable="true">
+                                                                  <listheader label="Employee_Name" sort="auto" width="220px"/>
+                                                                  <listheader label="Gender" sort="auto" width="70px"/>
+                                                                  <listheader label="Status" sort="auto" width="200px"/>
+                                                            </listhead>
+                                                         </listbox>
+                                                   </tabpanel>
+                                                   
+                                         </tabpanels>
+                                   </tabbox>      
+                                       </hbox> 
+                                </hbox>
+                      </groupbox>
+                   
+                    
+                  
+                     </window>
+
+</zk>

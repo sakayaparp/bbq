@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+   <window apply="barbq.IndexStatusComposer" id="main">
+
+        <style>
+		.style{
+			text-decoration: line-through;
+		}
+	</style>
+	
+        <borderlayout height="650px">
+            <north size="100px">
+                <span>
+                    <hbox>
+                        <vbox>
+                            <a href="indexStatus.zul" label="Status Report" style="color:black;font-size:40px" tooltip="any"/>
+                            <label value="Computer Engineering, Suranaree University Of Technology"/>
+                            <popup id="any" width="300px">
+                                <vbox>
+                                    <label value="ระบบคลังสินค้า เบิก จ่าย"/>
+                                    <label value="sut computer"/>
+                                </vbox>
+                            </popup>
+							<hbox>
+									<a href="indexemployee.zul" label="ย้อนกลับ" style="font-size:12px" />
+								</hbox>
+                        </vbox>
+                    </hbox>
+                </span>
+            </north>
+
+            
+
+            <center title="For Manager">
+                <div align="center">
+					<separator/>
+					<label value="เลือกระบบที่ต้องการ"/>
+					<separator/>
+					<combobox id="cbBoxSelect" width="200px">
+                            <comboitem label="ระบบโปรโมชั่น" id="promotion"/>
+                            <comboitem label="ระบบพนักงาน" id="employee"/>
+                            <comboitem label="ระบบเข้าออกงานของพนักงาน" id="timeinout"/>
+							<comboitem label="ระบบสมาชิก" id="member"/>
+							<comboitem label="ระบบบันทึกค่าใช้จ่ายประจำวัน" id="account"/>
+							<comboitem label="ระบบคลังสินค้า" id="warehouse"/>
+					</combobox>
+					<button id="btnselect">ตกลง</button>
+					
+					<!-- ================================Show brief Data================================-->
+					<separator/>
+					<groupbox width="100%">
+					<caption label="สรุปรวม"/>
+						<div align="center" style="padding:10px">
+								<label value="ลูกค้าทั้งหมด:"/><label id="sumCustomer"></label><separator/>
+								<label value="พนักงานทั้งหมด:"/><label id="sumEmployee"></label><separator/><separator/><separator/>
+								<label value="รายการสินค้าในคลังทั้งสิ้น:"/><label id="sumWarehouse"></label><separator/>
+						</div>
+					</groupbox>
+					<!-- =======================================================================================-->
+					
+                </div>
+            </center>
+
+            <south size="30px">
+                <div align="right">
+                    <a href="index.zul" label="ติดต่อ" style="font-size:12px" />
+                    <label value=" | "/>
+                    <a href="index.zul" label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                </div>
+
+            </south>
+    
+        </borderlayout>
+	
+		<window apply="barbq.IndexStatusComposer" id="WindowsWarehouse" title="รายงานระบบคลังสินค้า" width="1000px" mode="modal" position="center,center" visible="false">
+
+							<listbox id="lsBoxWarehouse" height="100%" mold="paging" pageSize="9">
+									<listhead sizable="true">
+										<listheader label="ชื่อรายการ" sort="auto" />
+										<listheader label="วันที่แก้ไข" sort="auto" width="230px"/>
+										<listheader label="วันที่ซื้อ" sort="auto"/>
+										<listheader label="จำนวน" sort="auto" />
+										<listheader label="ซื้อโดย" sort="auto" />
+										<listheader label="ราคา/หน่วย" sort="auto" />
+										<listheader label="หมายเหตุ" sort="auto" />
+									 </listhead>
+
+									 <listfoot>
+										<listfooter id="foot">
+											<hbox>
+											<button id="btnCancelWarehouse" label="ปิดหน้าต่าง"  width="100%"/>
+											</hbox>
+										 </listfooter>
+									 </listfoot>
+							</listbox>
+				
+		</window>
+		<window apply="barbq.IndexStatusComposer" id="WindowsEmployee" title="ข้อมูลพนักงาน" width="1000px" mode="modal" position="center,center" visible="false">
+							<listbox id="lsBoxEmployee" height="100%" mold="paging" pageSize="9">
+									<listhead sizable="true">
+										<listheader label="ชื่อ" sort="auto" />
+										<listheader label="นามสกุล" sort="auto"/>
+										<listheader label="เพศ" sort="auto"/>
+										<listheader label="ที่อยู่" sort="auto"/>
+										<listheader label="อำเภอ" sort="auto"/>
+										<listheader label="จังหวัด" sort="auto"/>
+										<listheader label="รหัสไปรษณีย์" sort="auto"/>
+										<listheader label="แผนก" sort="auto"/>
+										<listheader label="เงินเดือน" sort="auto"/>
+									 </listhead>
+
+									 <listfoot>
+										<listfooter id="foot">
+											<hbox>
+											<button id="btnCancelEmployee" label="ปิดหน้าต่าง"  width="100%"/>
+											</hbox>
+										 </listfooter>
+									 </listfoot>
+							</listbox>
+		</window>
+		
+		<window apply="barbq.IndexStatusComposer" id="WindowsMember" title="ข้อมูลลูกค้า" width="1000px" mode="modal" position="center,center" visible="false">
+							<listbox id="lsBoxMember" height="100%" mold="paging" pageSize="9">
+									<listhead sizable="true">
+										<listheader label="ชื่อ" sort="auto" />
+										<listheader label="นามสกุล" sort="auto"/>
+										<listheader label="รหัสสมาชิก" sort="auto"/>
+										<listheader label="ที่อยู่" sort="auto"/>
+										<listheader label="อำเภอ" sort="auto"/>
+										<listheader label="จังหวัด" sort="auto"/>
+										<listheader label="รหัสไปรษณีย์" sort="auto"/>
+										<listheader label="E-mail" sort="auto"/>
+										<listheader label="เบอร์โทรศัพท์" sort="auto"/>
+									 </listhead>
+
+									 <listfoot>
+										<listfooter id="foot">
+											<hbox>
+											<button id="btnCancelMember" label="ปิดหน้าต่าง"  width="100%"/>
+											</hbox>
+										 </listfooter>
+									 </listfoot>
+							</listbox>
+		</window>
+		
+		<window apply="barbq.IndexStatusComposer" id="WindowsPromotion" title="ข้อมูลโปรโมชั่น" width="1000px" mode="modal" position="center,center" visible="false">
+							<listbox id="lsBoxPromotion" height="100%" mold="paging" pageSize="9">
+									<listhead sizable="true">
+										<listheader label="ชื่อโปรโมชั่น" sort="auto" />
+										<listheader label="รายละเอียด" sort="auto"/>
+										<listheader label="จำนวนแต้ม" sort="auto"/>
+									 </listhead>
+
+									 <listfoot>
+										<listfooter id="foot">
+											<hbox>
+											<button id="btnCancelPromotion" label="ปิดหน้าต่าง"  width="100%"/>
+											</hbox>
+										 </listfooter>
+									 </listfoot>
+							</listbox>
+		</window>
+		
+		<window apply="barbq.IndexStatusComposer" id="WindowsSavemoney" title="ข้อมูลรายรับรายจ่าย" width="1000px" mode="modal" position="center,center" visible="false">
+							<listbox id="lsBoxSavemoney" height="100%" mold="paging" pageSize="9">
+									<listhead sizable="true">
+										<listheader label="ชื่อ" sort="auto" />
+										<listheader label="วันที่" sort="auto"/>
+										<listheader label="จำนวน" sort="auto"/>
+										<listheader label="ราคา" sort="auto"/>
+									 </listhead>
+
+									 <listfoot>
+										<listfooter id="foot">
+											<hbox>
+											<button id="btnCancelSavemoney" label="ปิดหน้าต่าง"  width="100%"/>
+											</hbox>
+										 </listfooter>
+									 </listfoot>
+							</listbox>
+		</window>
+		
+		
+		
+		<window apply="barbq.IndexStatusComposer" id="WindowsCheckin" title="ข้อมูลการเข้างานของพนักงาน" width="1000px" mode="modal" position="center,center" visible="false">
+							<listbox id="lsBoxCheckin" height="100%" mold="paging" pageSize="9">
+									<listhead sizable="true">
+										<listheader label="ชื่อ" sort="auto" />
+										<listheader label="เวลาเข้างาน" sort="auto"/>
+									 </listhead>
+
+									 <listfoot>
+										<listfooter id="foot">
+											<hbox>
+											<button id="btnCancelCheckin" label="ปิดหน้าต่าง"  width="100%"/>
+											</hbox>
+										 </listfooter>
+									 </listfoot>
+							</listbox>
+		</window>
+
+    </window>
+
+</zk>

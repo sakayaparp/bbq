@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+        <window apply="barbq.BarnamComposer">
+
+           <style>
+                .style{
+                    text-decoration: line-through;
+                }
+            </style>
+        
+            <borderlayout height="650px">
+                <north size="100px">
+                    <span>
+                        <hbox>
+                            <vbox>
+                                <a label="Water Original" style="color:black;font-size:40px" tooltip="any"/>
+                                <label value="Computer Engineering, Suranaree University Of Technology"/>
+                                        <hbox>
+                                            <separator/>
+                                            <button id="btnLogout" href="/loginWarehouse.zul">ออกจากระบบ</button><separator/>
+
+                                        </hbox>        
+                                    
+                            </vbox>
+                        </hbox>
+                    </span>
+                </north>
+                
+                 
+            <west title="แก้ไขหรือเพิ่มเติมข้อมูล" size="33%" flex="true" maxsize="400" splittable="true" collapsible="true">
+                <div >            
+                    
+                    <groupbox width="100%">
+                        <span>
+                            <listbox id="boxer"> 
+
+                                
+                                <listhead sizable="true">                           
+                                    <listheader label="ลดรายการที่มีอยู่" width="35%" />
+                                    <listheader label="" sort="auto" />
+                                </listhead>
+
+                                <listitem>
+                                    <listcell label="รายการเครื่องดื่ม"/>
+                                    <listcell><combobox id="cdBox" width="85%" /></listcell>
+                                </listitem>
+
+                            <!--     <listitem>
+                                    <listcell label="จำนวนคงเหลือ"/>
+                                    <listcell><spinner id="txtAddNum" width="40%"/></listcell>
+                                </listitem>
+                                                                           
+                               <listitem>
+                                    <listcell label="ช่วงเวลาที่เช็ค"/>
+                                    <listcell><timebox id="txtAddTime" cols="20" format=" hh:mm:ss"/>
+                                    </listcell>
+                                </listitem> -->
+                            
+                            </listbox><separator/>
+
+                            <button label="ลบรายการ" id="btnEdit"/>
+
+                            <separator/>
+                        </span>
+                    </groupbox>
+
+                                <listbox id="box">
+                                        <listhead sizable="true">
+                                            <listheader label="แก้ไขและเพิ่มรายการ" width="25%" />
+                                            <listheader label="" sort="auto" />
+                                        </listhead>
+
+                                        <listitem>
+                                            <listcell label="ชื่อของเครื่องดื่ม"/>
+                                            <listcell><textbox id="txtAddFoodName" rows="1" hflex="1"/></listcell>
+                                        </listitem>
+
+                                        <listitem>
+                                            <listcell label="จำนวน"/>
+                                            <listcell><spinner id="txtAddNumber" width="40%" /></listcell>
+                                        </listitem>
+
+                                        <listitem>
+                                            <listcell label="จำนวนที่เหลือ"/>
+                                            <listcell><spinner id="txtAddNumbers" width="40%" /></listcell>
+                                        </listitem>
+ 
+                                    <!--    <listitem>
+                                            <listcell label="ช่วงเวลาที่เช็ค"/>
+                                            <listcell><timebox id="txtAddTimer" cols="20" format=" hh:mm:ss"/>
+                                            </listcell>
+                                        </listitem> -->
+
+                                        <listitem>
+                                            <listcell label="หมายเหตุ"/>
+                                            <listcell><textbox id="txtAddDetails" rows="2" hflex="1" /></listcell>
+                                        </listitem>
+
+                                        <listfoot>
+                                            <listfooter>
+                                                <label value="" />
+                                            </listfooter>
+                                        
+                                            <listfooter>
+                                                <button label="เพิ่มข้อมูล" id="btnAddTask" />
+                                            </listfooter>
+
+
+
+                                        </listfoot>
+                                </listbox>
+<!--================================================================================================================-->
+
+                             <!--   <listbox id="boxbax">
+                                        <listhead sizable="true">
+                                            <listheader label="เพิ่มรายการ" width="25%" />
+                                            <listheader label="" sort="auto" />
+                                        </listhead>
+
+                                        <listitem>
+                                            <listcell label="ชื่อของเครื่องดื่ม"/>
+                                            <listcell><combobox id="cdBoxer" width="85%" /></listcell>
+                                        </listitem>
+
+                                        <listitem>
+                                            <listcell label="จำนวน"/>
+                                            <listcell><spinner id="Num" width="40%" /></listcell>
+                                        </listitem>
+
+                                        <listfoot>
+                                            <listfooter>
+                                                <label value="" />
+                                            </listfooter>
+                                        
+                                            <listfooter>
+                                                <button label="บันทึกข้อมูล" id="btnOk" />
+                                            </listfooter>
+                                        </listfoot>
+                                </listbox> -->
+            
+            
+                </div>
+            </west>
+ 
+                   
+
+            <center title="รายละเอียดข้อมูลบาร์น้ำ" border="none" flex="true" >
+                <div id="game" align="center">
+                
+                    <listbox id="eiei" height="68%" width="100%" mold="paging" pageSize="9">
+                        <listhead>
+                            <listheader label="รายการ" sort="auto" align="center" width="27%"/>
+                            <!-- <listheader label="Status" sort="auto"/> -->
+                            <listheader label="จำนวนทั้งหมด" sort="auto" align="center" />
+                            <listheader label="จำนวนคงเหลือ" sort="auto" align="center"/>
+                            <listheader label="เวลาที่บันทึก" sort="auto" align="center" width="20%"/>
+                            <listheader label="หมายเหตุ" sort="auto" align="center" width="30%"/>
+                        </listhead>
+
+                    </listbox>
+                   
+                </div>  
+            </center>
+
+                <south size="30px">
+                    <div align="right">
+                        <a href="index.zul" label="ติดต่อ" style="font-size:12px" />
+                        <label value=" | "/>
+                        <a href="index.zul" label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                    </div>
+
+                </south>
+        
+            </borderlayout>
+
+        </window>
+    </zk>

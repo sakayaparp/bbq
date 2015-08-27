@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="0" hostname="darkkill-PC" name="barbq.CheckinTests" tests="3" time="1.997" timestamp="2556-03-21T06:44:58">
+  <properties />
+  <testcase classname="barbq.CheckinTests" name="testUserName" time="1.872" />
+  <testcase classname="barbq.CheckinTests" name="testBlankDate" time="0.078">
+    <error message="No such property: validate for class: barbq.Checkin" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: validate for class: barbq.Checkin
+	at barbq.CheckinTests.testBlankDate(CheckinTests.groovy:22)
+</error>
+  </testcase>
+  <testcase classname="barbq.CheckinTests" name="testBlankUserName" time="0.016" />
+  <system-out><![CDATA[--Output from testUserName--
+--Output from testBlankDate--
+--Output from testBlankUserName--
+]]></system-out>
+  <system-err><![CDATA[--Output from testUserName--
+--Output from testBlankDate--
+--Output from testBlankUserName--
+]]></system-err>
+</testsuite>

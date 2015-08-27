@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<style>
+			body { padding: 0 0; background:url('images/indexpage.jpg')}
+	</style>
+	
+    <window apply="barbq.IndexComposer" width="1366px" height="700px">
+		<window id="registerPage" apply="barbq.IndexComposer" width="700px" mode="modal" position="center,center" visible="false">
+			<hbox>
+				<div width="395px" height="395px" style="background-color:#CCCCCC">
+					<separator/><separator/>
+					<separator/><space/><space/><label style="font-size:20px">Username</label>
+					<separator/><space/><space/><textbox id="inID"/>
+					<separator/><space/><space/><label style="font-size:20px">Password</label>
+					<separator/><space/><space/><textbox id="inPassword" type="password"/>
+					<separator/><space/><space/><label style="font-size:20px">Confirm Password</label>
+					<separator/><space/><space/><textbox id="inPasswordc" type="password"/>
+					<separator/><space/><space/><label style="font-size:20px">ชื่อ-นามสกุล</label>
+					<separator/><space/><space/><textbox id="inName"/>
+					<space/><textbox id="inLastname"/>
+					<separator/><space/><space/><label style="font-size:20px">Email</label>
+					<separator/><space/><space/><textbox id="inEmail"/>
+					<separator/><space/><space/><label style="font-size:20px">เบอร์โทรศัพท์</label>
+					<separator/><space/><space/><textbox id="inPhone"/>
+				</div>
+				<div></div>
+				<div width="300px" height="395px" style="background-color:#CCCCCC">
+					<separator/><separator/>
+					<separator/><space/><label style="font-size:20px">รหัสบัตรประชาชน</label>
+					<separator/><space/><textbox id="inIdentify"/>
+					<separator/><space/><label style="font-size:20px">ที่อยู่</label>
+					<separator/><space/><textbox id="inAddress"/>
+					<separator/><space/><label style="font-size:20px">อำเภอ</label>
+					<separator/><space/><textbox id="inAmphoe"/>
+					<separator/><space/><label style="font-size:20px">จังหวัด</label>
+					<separator/><space/><textbox id="inProvince"/>
+					<separator/><space/><label style="font-size:20px">รหัสไปรษณีย์</label>
+					<separator/><space/><textbox id="inZipCode"/>
+					<separator/><separator/>
+					<separator/><space/><button id="btnConfirm" label="ยืนยัน"/><space/><button id="btnCancel" label="ยกเลิก"/>
+				</div>
+			</hbox>
+		</window>
+		
+		<div width="1366px" height="250px">
+			<separator/><space/>
+			<toolbarbutton href="index.zul" label="HOME "   style="font-size:25px; font-weight:bold; ;color:#66CCFF; font-family:'20th Century Font'"/>
+			<toolbarbutton href="loginWarehouse.zul" label="Employee" style="font-size:25px; font-weight:bold; color:#66CCFF;  font-family:'20th Century Font'"/>
+			<toolbarbutton href="checkin.zul" label="CheckIn" style="font-size:25px; font-weight:bold; color:#66CCFF;  font-family:'20th Century Font'"/>
+			
+		</div>
+		<div>
+		</div>
+		<div align="right" width="1210px" style="vertical-align:top" height="300px">
+			<label style="color:white; font-weight:bold">Username:</label><space/>
+			<textbox id="txtUser" style="background-color:black; color:white; font-weight:bold"/>
+			<separator/><separator/>
+			<label style="color:white; font-weight:bold">Password:</label><space/>
+			<textbox id="txtPass" style="background-color:black; color:white; font-weight:bold" type="password"/>
+			<separator/><separator/>
+			 <button id="btnLogin" label="Login" style="color:white; background-color:black; font-weight:bold; font-family:'20th Century Font'; font-size:20px" width="100px" height="30px"/>
+			<separator/><separator/>
+			<button id="btnRegister" label="Register" style="font-weight:bold; font-family:'20th Century Font'; font-size:20px" width="120px" height="40px"/>	
+		</div>
+    </window>
+
+</zk>

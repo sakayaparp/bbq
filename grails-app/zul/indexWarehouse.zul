@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="barbq.IndexWarehouseComposer">
+
+        <style>
+			.style{
+				text-decoration: line-through;
+			}
+		</style>
+	
+        <borderlayout height="650px">
+            <north size="100px">
+                <span>
+                    <hbox>
+                        <vbox width="1250px">
+                            <a href="login.zul" label="WareHouse" style="color:gray;font-size:40px;font-family:Verdana,Arial" tooltip="any"/>
+                            <label value="Computer Engineering, Suranaree University Of Technology"/>
+                            <popup id="any" width="300px">
+                                <vbox>
+                                    <label value="ระบบคลังสินค้า เบิก จ่าย"/>
+                                    <label value="sut computer"/>
+                                </vbox>
+                            </popup>
+								<hbox>
+									<a href="Barnam.zul" label="ระบบบาร์น้ำ" style="font-size:12px" />
+								</hbox>
+                        </vbox>
+						<vbox>
+							<vbox height="20px">
+							</vbox>
+							
+								
+							<vbox height="30px">
+								<label value="ยินดีต้อนรับเข้าสู่ระบบคลังสินค้า"/>
+							</vbox>
+							
+							<vbox height="10px">
+								<button id="btnLogout">ออกจากระบบ</button><separator/>
+							</vbox>
+							
+						</vbox>
+                    </hbox>
+                </span>
+            </north>
+			<west title="รายการสินค้าคงคลัง" size="900px">
+                <div>
+                    <listbox id="listboxID" height="100%" mold="paging" pageSize="13">
+                        <listhead>
+                            <listheader label="รายการ" sort="auto"/>
+                            <!-- <listheader label="Status" sort="auto"/> -->
+                            <listheader label="จำนวนที่เหลือ" sort="auto"/>
+							<listheader label="วันหมดอายุ" sort="auto"/>
+							<listheader label="ราคา/หน่วย" sort="auto"/>
+							<listheader label="รายละเอียด" sort="auto"/>
+                        </listhead>
+						
+					   <!-- <listitem>
+                            <listcell label="Meat"/>
+                            <listcell label="Meat"/>
+                            <listcell label="On"/>
+                            <listcell label="11"/>
+                        </listitem> -->
+                    </listbox>
+                </div>
+            </west>
+            
+
+            <center title="รายละเอียด">
+                <div>
+				
+				<groupbox width="100%">
+                    <caption label="แก้ไขรายการอาหาร"/>
+                    <separator/>
+                    <span>
+                        <label value="รายการ:"/> 
+                        <combobox id="cbBoxID">
+                            <!--
+							<comboitem label="หมู"/>
+                            <comboitem label="เห็ด"/>
+                            <comboitem label="เป็ด"/>
+                            <comboitem label="ไก่"/>
+							-->
+						</combobox>จำนวน:
+						<spinner id="txtDecrese"/>
+						
+                        <separator/>
+						<separator/>
+						<separator/>
+						<separator/>
+						<button label="ลดรายการ" id="btnDelete"/>
+						<label value="....................................................."/>
+						<button label="เพิ่มจำนวน" id="btnIncreaseNumber"/>
+						<button label="ลดจำนวน" id="btnDecreaseNumber"/>
+						<separator/><separator/><separator/>
+                    </span>
+                </groupbox>
+			
+				<!--
+                <groupbox width="100%">
+                    <caption label="เพิ่มรายการอาหาร"/>
+                    <separator/>
+                    <span>
+                        <label value="ชื่ออาหาร:"/><textbox id="txtAddFoodName"/> <separator/>
+						<label value="วันหมดอายุ:"/> <textbox id="txtAddExpire"/> <separator/>
+						<label value="จำนวน:"/> <textbox id="txtAddNumber"/> <separator/>
+						<label value="ซื้อโดย:"/> <textbox id="txtAddBy"/> <separator/>
+						<label value="ราคา:"/> <textbox id="txtAddPrice"/> <separator/>
+						<button id="btnAddTask">เพิ่มข้อมูล</button>
+                    </span>
+                </groupbox>
+				-->
+												<listbox id="box">
+													<listhead sizable="true">
+													<listheader label="เพิ่มรายการ" sort="auto" />
+													<listheader label="" sort="auto" />
+												</listhead>
+												<listitem>
+													<listcell label="ชื่อสินค้า(*)"/>
+													<listcell><textbox id="txtAddFoodName" rows="2" hflex="1"/></listcell>
+												</listitem>
+												<listitem>
+													<listcell label="วันหมดอายุ"/>
+													<listcell><datebox id="txtAddExpire" cols="12" format="short" /></listcell>
+												</listitem>
+												<listitem>
+													<listcell label="จำนวน(*)"/>
+													<listcell><spinner id="txtAddNumber" hflex="1"/></listcell>
+												</listitem>
+												<listitem>
+													<listcell label="ซื้อโดย"/>
+													<listcell><textbox id="txtAddBy" hflex="1" /></listcell>
+												</listitem>
+												<listitem>
+													<listcell label="ราคา(*)"/>
+													<!--<listcell><spinner id="txtAddPrice"/></listcell>-->
+													<listcell><doublespinner id="txtAddPrice" hflex="1" step="0.1"/></listcell>
+												</listitem>
+												<listitem>
+													<listcell label="รายละเอียด"/>
+													<listcell><textbox id="txtAddDetails" rows="2" hflex="1" /></listcell>
+												</listitem>
+												<listfoot>
+													<listfooter>
+														<label value="" />
+													</listfooter>
+													<listfooter>
+														<button label="บันทึกลงสู่ฐานข้อมูล" id="btnAddTask" />
+													</listfooter>
+												</listfoot>
+											</listbox>
+                </div>
+            </center>
+
+            <south size="30px">
+                <div align="right">
+                    <a href="index.zul" label="ติดต่อ" style="font-size:12px" />
+                    <label value=" | "/>
+                    <a href="index.zul" label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                </div>
+
+            </south>
+    
+        </borderlayout>
+
+    </window>
+
+</zk>

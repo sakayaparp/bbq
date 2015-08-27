@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+   <window apply="barbq.PaymentComposer" >
+
+<style>
+		.style{
+			text-decoration: line-through;
+		}
+	</style>
+	
+        <borderlayout height="650px">
+            <north size="100px">
+                <span>
+                    <hbox>
+                        <vbox>
+                            <a label="Payment" style="color:black;font-size:40px" tooltip="any"/>
+                            <label value="Computer Engineering, Suranaree University Of Technology"/>
+                            
+								
+									<hbox>
+                                        <separator/>
+                                        <button id="btnLogout" href="/loginWarehouse.zul">ออกจากระบบ</button><separator/>
+                                        <separator/>
+                                        <button id="btnch" href="/savemoney.zul">เข้าระบบบันทึกค่าใช้จ่ายประจำวัน</button><separator/>
+                                     </hbox> 		
+								
+                        </vbox>
+                    </hbox>
+                </span>
+            </north>
+
+            <center title="ระบบชำระเงิน">
+            <div align="center">
+				<separator/><separator/><separator/>
+				<label>เลขโต๊ะ</label>
+				<textbox id="txt1"/>
+				<button id="btn" label="ดูรายละเอียดการสั่ง"/>
+				<button id="btncon" label="ชำระเงิน"/>
+				<button id="cancel" label="เคลียรายการ"/>
+				
+				<window id="main2" apply="barbq.PaymentComposer" title="รายการสั่งอาหาร"  border="normal" width="1200px">
+					<listbox id="box1" width = "1200px" height="350px">
+					<listhead sizable="true">
+					<listheader align="center" label="โต๊ะ" sort="auto" />
+					<listheader align="center" label="รายการ" sort="auto" />
+					<listheader align="center" label="จำนวน" sort="auto" />
+					<listheader align="center" label="ราคา" sort="auto" />
+					<listheader align="center" label="สถานะ" sort="auto" />
+					
+					</listhead>
+     
+					<listfoot>
+					<listfooter>
+					</listfooter>
+					<listfooter>
+					</listfooter>
+				</listfoot>
+				</listbox>
+				</window>
+         </div>
+            </center>
+
+            <south size="30px">
+                <div align="right">
+                    <a label="ติดต่อ" style="font-size:12px" />
+                    <label value=" | "/>
+                    <a label="เกี่ยวกับผู้ดูแลระบบ" style="font-size:12px" />       
+                </div>
+
+            </south>
+    
+        </borderlayout>
+		<window id="pay" apply="barbq.PaymentComposer" height="400px" width="600px" mode="modal" position="center,center" visible="false">
+			<vbox>
+			<hbox>
+			
+					<label style="font-size:35px">จำนวนเงิน</label>
+					<space/><space/><space/>
+					<textbox style="font-size:35px" id="payment1"/>
+			</hbox>
+			<separator/><separator/><separator/>
+			<hbox>
+					<label style="font-size:35px">จำนวนราคา</label>
+					<space/><space/>
+					<textbox style="font-size:35px" id="payment2"/>
+			</hbox>
+			<separator/><separator/><separator/>
+			<hbox>
+					<label style="font-size:35px">เงินทอน</label>
+					<space/><space/><space/><space/><space/>
+					<textbox style="font-size:35px" id="payment3"/>
+			</hbox>
+			<separator/><separator/><separator/>
+			<hbox>
+			<space/><space/><space/><space/><space/><space/><space/><space/>
+			<space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/><space/>
+				<button width="50px" height="50px" id="btnok" label="คิดเงิน"/> 
+				<button width="50px" height="50px" id="cancel2" label="ยกเลิก"/>
+				<button width="50px" height="50px" id="btnclear" label="clear"/>
+			</hbox>
+			</vbox>
+		</window>
+
+    </window>
+
+</zk>
